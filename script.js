@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleButtons = document.querySelectorAll('.toggle-password');
 
     toggleButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('data-target');
             const input = document.getElementById(targetId);
             const icon = this.querySelector('i');
-            
+
             if (input && icon) {
                 if (input.type === 'password') {
                     input.type = 'text';
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (user) {
             console.log('Usuario autenticado:', user.email);
             // Si el usuario está en index.html o register.html, redirigir a una página de bienvenida
-            // (puedes crear una página de dashboard o perfil)
+
         } else {
             console.log('No hay usuario autenticado');
         }
@@ -40,26 +40,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form validation and submission for login
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
-        loginForm.addEventListener('submit', async function(e) {
+        loginForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
-                
+
                 alert(`¡Bienvenido de nuevo! Has iniciado sesión como: ${user.email}`);
-                console.log('Usuario logueado:', user);
-                
-                // Aquí puedes redirigir a otra página
-                // window.location.href = 'dashboard.html';
-                
+                // console.log('Usuario logueado:', user);
+
             } catch (error) {
                 console.error('Error al iniciar sesión:', error);
                 let errorMessage = 'Error al iniciar sesión.';
-                
+
                 switch (error.code) {
                     case 'auth/invalid-email':
                         errorMessage = 'El correo electrónico no es válido.';
@@ -79,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     default:
                         errorMessage = `Error: ${error.message}`;
                 }
-                
+
                 alert(errorMessage);
             }
         });
@@ -88,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form validation for registration
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
-        registerForm.addEventListener('submit', async function(e) {
+        registerForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const nombre = document.getElementById('nombre').value;
             const direccion = document.getElementById('direccion').value;
             const nacimiento = document.getElementById('nacimiento').value;
@@ -104,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const direccionRegex = /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s,.\/-]+$/;
             const nacimientoRegex = /^\d{4}$/;
             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            
+
             let errors = [];
 
             if (!nombreRegex.test(nombre)) {
@@ -145,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Crear usuario en Firebase Authentication
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
-                
+
                 // Guardar información adicional en Realtime Database
                 await set(ref(db, 'usuarios/' + user.uid), {
                     nombre: nombre,
@@ -154,17 +151,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     email: email,
                     fechaRegistro: new Date().toISOString()
                 });
-                
+
                 alert("¡Registro exitoso! Tu cuenta ha sido creada.");
                 console.log('Usuario registrado:', user);
-                
+
                 // Redirigir al login o dashboard
                 window.location.href = 'index.html';
-                
+
             } catch (error) {
                 console.error('Error al registrar usuario:', error);
                 let errorMessage = 'Error al registrar la cuenta.';
-                
+
                 switch (error.code) {
                     case 'auth/email-already-in-use':
                         errorMessage = 'Ya existe una cuenta con este correo electrónico.';
@@ -181,14 +178,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     default:
                         errorMessage = `Error: ${error.message}`;
                 }
-                
+
                 alert(errorMessage);
             }
         });
     }
 });
 
-// Función para cerrar sesión (puedes llamarla desde donde necesites)
+// Función para cerrar sesión
 export async function logout() {
     try {
         await signOut(auth);
