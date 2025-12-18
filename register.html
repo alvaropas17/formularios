@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Mi Sitio Web</a>
+        <div class="user-actions">
+            <a href="login.html" class="login-icon">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Crear Cuenta</h2>
+            <form id="registerForm" action="#" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="direccion" name="direccion" placeholder="Tu dirección">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nacimiento">Año de Nacimiento</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-calendar"></i>
+                        <input type="number" id="nacimiento" name="nacimiento" placeholder="Ej: 1990" min="1900" max="2025">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico (Usuario)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Contraseña segura" required>
+                        <button type="button" class="toggle-password" data-target="password">Ver</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password">Repetir Contraseña</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Repite la contraseña" required>
+                    </div>
+                </div>
+
+                <div class="lopd-notice">
+                    <input type="checkbox" id="lopd" name="lopd" required>
+                    <label for="lopd">Acepto la política de privacidad y el tratamiento de mis datos personales según la LOPD.</label>
+                </div>
+
+                <button type="submit" class="btn-submit">Registrarse</button>
+
+                <div class="form-footer">
+                    ¿Ya tienes cuenta? <a href="index.html">Inicia sesión aquí</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

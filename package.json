@@ -1,0 +1,17 @@
+{
+  "name": "formularios-firebase",
+  "version": "1.0.0",
+  "description": "Formularios de login y registro con Firebase",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^11.1.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
