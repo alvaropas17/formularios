@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div class="user-actions">
@@ -40,7 +42,8 @@
                     <label for="nacimiento">Año de Nacimiento</label>
                     <div class="input-wrapper">
                         <i class="fas fa-calendar"></i>
-                        <input type="number" id="nacimiento" name="nacimiento" placeholder="Ej: 1990" min="1900" max="2025">
+                        <input type="number" id="nacimiento" name="nacimiento" placeholder="Ej: 1990" min="1900"
+                            max="2025">
                     </div>
                 </div>
 
@@ -57,7 +60,9 @@
                     <div class="input-wrapper">
                         <i class="fas fa-lock"></i>
                         <input type="password" id="password" name="password" placeholder="Contraseña segura" required>
-                        <button type="button" class="toggle-password" data-target="password">Ver</button>
+                        <button type="button" class="toggle-password" data-target="password">
+                            <i class="fas fa-eye"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -65,13 +70,15 @@
                     <label for="confirm_password">Repetir Contraseña</label>
                     <div class="input-wrapper">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Repite la contraseña" required>
+                        <input type="password" id="confirm_password" name="confirm_password"
+                            placeholder="Repite la contraseña" required>
                     </div>
                 </div>
 
                 <div class="lopd-notice">
                     <input type="checkbox" id="lopd" name="lopd" required>
-                    <label for="lopd">Acepto la política de privacidad y el tratamiento de mis datos personales según la LOPD.</label>
+                    <label for="lopd">Acepto la política de privacidad y el tratamiento de mis datos personales según la
+                        LOPD.</label>
                 </div>
 
                 <button type="submit" class="btn-submit">Registrarse</button>
@@ -85,4 +92,5 @@
 
     <script type="module" src="script.js"></script>
 </body>
+
 </html>

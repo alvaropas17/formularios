@@ -5,16 +5,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleButtons = document.querySelectorAll('.toggle-password');
 
     toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
             const targetId = this.getAttribute('data-target');
             const input = document.getElementById(targetId);
+            const icon = this.querySelector('i');
             
-            if (input.type === 'password') {
-                input.type = 'text';
-                this.textContent = 'Ocultar';
-            } else {
-                input.type = 'password';
-                this.textContent = 'Ver';
+            if (input && icon) {
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
             }
         });
     });
